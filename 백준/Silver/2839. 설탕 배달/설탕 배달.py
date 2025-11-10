@@ -1,12 +1,14 @@
-n=int(input())
-c,d=divmod(n,5)
-
-def asdf(a,b):
-    if b%3 == 0:
-        print(a+(b//3))
-    elif a == 0:
-        print(-1)
+n = int(input())
+answer = n // 5
+remainder = n % 5
+if remainder != 0:
+    for i in range(0, (n // 5) + 1):
+        if remainder % 3 == 0:
+            answer += remainder // 3
+            break
+        remainder += 5
+        answer -= 1
     else:
-        asdf(a-1, b+5)
+        answer = -1
 
-asdf(c,d)
+print(answer)
